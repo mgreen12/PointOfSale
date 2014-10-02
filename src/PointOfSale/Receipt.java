@@ -8,8 +8,12 @@ package PointOfSale;
 public class Receipt {
     
     private LineItem lineItem; //Check
-    private double subTotal;
-    private double grandTotal;
+    private double subTotal; //Check
+    private double grandTotal; //Check
+    
+    public Receipt(int CustomerId) {
+       
+    }
     
     //Add parameters, javadoc
     public void addLineItem() {

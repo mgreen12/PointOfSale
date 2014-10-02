@@ -8,13 +8,25 @@ package PointOfSale;
 public class Product {
     private int prodId;
     private String description;
-    private double price;
+    private double unitPrice;
     
     // Add validation, javadoc
-    public Product(int prodId, String description, double price) {
+    public Product(int prodId, String description, double unitPrice) {
         this.prodId = prodId;
         this.description = description;
-        this.price = price;
+        this.unitPrice = unitPrice;
+    }
+    
+    public int getProdId() {
+        return prodId;
+    }
+    
+    public String getDescription() {
+        return description;
+    }
+    
+    public double getPrice() {
+        return unitPrice;
     }
     
 }

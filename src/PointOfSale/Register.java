@@ -10,8 +10,8 @@ public class Register {
     private Receipt receipt;
     
     // Add javadoc
-    public void startNewSale() {
-        
+    public void startNewTransaction(int customerId) {
+        receipt = new Receipt(customerId);
     }
     
     // Add parameters, validation, javadoc
