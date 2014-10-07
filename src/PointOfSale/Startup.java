@@ -8,10 +8,10 @@ package PointOfSale;
 
 /** CHECK before final submission:
  * 
- * All methods have Javadoc
- * All methods with parameters have validation
- * All variables/methods are camel-cased with NO beginning capital letter
- * CHANGE author on all classes to be the same (author changes from home PC to school PC between "Max" and "mgreen12")
+ * [ ] All methods have Javadoc
+ * [ ] All methods with parameters have validation
+ * [ ] All variables/methods are camel-cased with NO beginning capital letter
+ * [ ] CHANGE author on all classes to be the same (author changes from home PC to school PC between "Max" and "mgreen12")
  * 
 */
 
