@@ -4,12 +4,12 @@ package PointOfSale;
  *
  * @author Max
  */
-public class PercentageDiscount implements DiscountStrategy{
-
-    //Calculate discount of 20%
+public class NoDiscount implements DiscountStrategy {
+    
+    //Item is not elegible for a discount
     @Override
     public double getDiscount(double price) {
-        return (price * .80);
+        return price;
     }
     
 }

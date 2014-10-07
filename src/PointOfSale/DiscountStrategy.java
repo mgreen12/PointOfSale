@@ -6,6 +6,7 @@ package PointOfSale;
  */
 public interface DiscountStrategy {
     
-    public abstract void getDiscount();
+    //Method to be overridden to calculate the discount price
+    public abstract double getDiscount(double price);
     
 }

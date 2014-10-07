@@ -7,18 +7,47 @@ package PointOfSale;
  */
 public class LineItem {
     
-    private Product product;
+    //Instantiate variable
     private int quantity;
+
+    //Instantiate objects
+    private DatabaseStrategy database;
+    private Product product;
     
-    // CHECK not sure if this is correct
-//    public LineItem(Product product, int quantity) {
-//        this.product = product;
-//        this.quantity = quantity;
-//    }
-    
-    // Add paramters, validation, javadoc
-    public void setQuantity() {
-        
+    //LineItem constructor
+    public LineItem(int itemNumber, int quantity, DatabaseStrategy database) {
+        this.database = database;
+        this.quantity = quantity;
+        product = database.searchForProduct(itemNumber);
     }
     
+    //Return quantity
+    public int getQuantity() {
+        return quantity;
+    }
+    
+    //Calls Product and returns the price
+    public double getProductPrice() {
+        return product.getPrice();
+    }
+    
+    //Calls Product and returns the description
+    public String getDesciption() {
+        return product.getDescription();
+    }
+    
+    //Calls Product and returns the item number
+    public int getItemNumber() {
+        return product.getItemNumber();
+    }
+
+    //Calls Product and returns the subtotal for item(s)
+    public double getLineSubTotal() {
+        return (product.getDiscount() * quantity);
+    }
+    
+    //Calls Product and returns the discount
+    public double getDiscount() {
+        return product.getDiscount();
+    }
 }

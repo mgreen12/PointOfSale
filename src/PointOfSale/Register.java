@@ -7,25 +7,22 @@ package PointOfSale;
  */
 public class Register {
     
+    //Instantiate objects
     private Receipt receipt;
-    
-    // Add javadoc
-    public void startNewTransaction(int customerId) {
-        receipt = new Receipt(customerId);
+
+    //Creates a new receipt
+    public void newSale(int customerId, DatabaseStrategy database) {
+        receipt = new Receipt(customerId, database);
+    }
+
+    //Adds item to the sale
+    public void addItemToSale(int quantity, int itemNumber) {
+        receipt.addLineItem(quantity, itemNumber);
     }
     
-    // Add parameters, validation, javadoc
-    public void addItemToSale() {
-        
-    }
-    
-    /**
-     * Adds a line item to the receipt 
-     * @param lol unique identifier for a product
-     * @return the quantity of the product purchased
-     */
-    public int methodForJavadocExample(int lol) {
-       return lol;
+    //Calls Receipt to print the receipt
+    public void printReceipt() {
+        receipt.printReceipt();
     }
     
 }

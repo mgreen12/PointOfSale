@@ -2,31 +2,45 @@ package PointOfSale;
 
 /**
  *
- * @author mgreen12
+ * @author Max
  * @version 1.0
  */
 public class Product {
-    private int prodId;
+    
+    //Instantiate variables
+    private int itemNumber;
     private String description;
-    private double unitPrice;
+    private double price;
     
-    // Add validation, javadoc
-    public Product(int prodId, String description, double unitPrice) {
-        this.prodId = prodId;
+    //Instantiate objects
+    private DiscountStrategy discount;
+    
+    //Product constructor
+    public Product(int itemNumber, String description, double price, DiscountStrategy discount) {
+        this.itemNumber = itemNumber;
         this.description = description;
-        this.unitPrice = unitPrice;
+        this.price = price;
+        this.discount = discount;
     }
     
-    public int getProdId() {
-        return prodId;
+    //Return price
+    public double getPrice() {
+        return price;
     }
     
+    //Return description
     public String getDescription() {
         return description;
     }
     
-    public double getPrice() {
-        return unitPrice;
+    //Return item number
+    public int getItemNumber() {
+        return itemNumber;
+    }
+    
+    //Calls discount object and returns the discount
+    public double getDiscount() {
+        return discount.getDiscount(price);
     }
     
 }
