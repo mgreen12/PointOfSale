@@ -10,8 +10,8 @@ public class Receipt {
     //Instantiate variables
     private double subTotal = 0;
     private double grandTotal = 0;
-    private double salesTax = 0.051;
-    private static int transactionNumber;
+    private double salesTax = 0.051; //Waukesha sales tax
+    private static int transactionNumber; //Increment by 1 every new transaction
     
     //Instantiate objects
     private Customer customer;
@@ -21,11 +21,13 @@ public class Receipt {
     
     public Receipt(int customerId, DatabaseStrategy database) {
         this.database = database;
+        customer = database.searchForCustomer(customerId);
+        transactionNumber++;
     }
     
     //Add parameters, javadoc
-    public void addLineItem() {
-        LineItem lineItem = new LineItem(); //Add parameters
+    public void addLineItem(int quantity, int itemNumber) {
+        LineItem lineItem = new LineItem(itemNumber, quantity, database); //Add parameters
     }
     
     //Add javadoc
@@ -35,6 +37,22 @@ public class Receipt {
         System.arraycopy(lineItems, 0, copyArray, 0, lineItems.length);
         copyArray[lineItems.length] = lineItem;
         lineItems = copyArray;
+    }
+    
+    public void printReceipt() {
+        //Prints the receipt:
+        //
+        //        StoreInfo
+        //Date      time    transactionNumber
+        //====================================
+        //itemNumber    description     subTotalPrice      (for single line item, if more than 1 add next line)
+        //      quantity @ price        subTotalPrice
+        //====================================
+        //                              subTotal
+        //                                  +Tax
+        //                            grandTotal
+        //
+        //Thank you for shopping at storeInfo.name(), we look forward to seeing you again and have a nice day!
     }
     
 }

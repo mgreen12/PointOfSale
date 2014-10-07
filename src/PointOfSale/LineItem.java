@@ -7,12 +7,28 @@ package PointOfSale;
  */
 public class LineItem {
     
-    private Product product;
     private int quantity;
     
-    // Add paramters, validation, javadoc
-    public void setQuantity() {
-        
+    private DatabaseStrategy database;
+    private Product product;
+    
+    public LineItem(int itemNumber, int quantity, DatabaseStrategy database) {
+        this.database = database;
+        this.quantity = quantity;
+        product = database.searchForProduct(itemNumber);
+    }
+    
+    public int getQuantity() {
+        return quantity;
+    }
+    
+    public double getProductPrice() {
+        return product.getPrice();
+    }
+    
+    //DISCOUNT
+    public double getLineSubTotal() {
+        return (product.getPrice() * quantity);
     }
     
 }

@@ -14,9 +14,13 @@ public class Register {
         receipt = new Receipt(customerId, database);
     }
     
-    // Add parameters, validation, javadoc
-    public void addItemToSale() {
-        
+    // Add javadoc
+    public void addItemToSale(int quantity, int itemNumber) {
+        receipt.addLineItem(quantity, itemNumber);
+    }
+    
+    public void printReceipt() {
+        receipt.printReceipt();
     }
     
     /**
