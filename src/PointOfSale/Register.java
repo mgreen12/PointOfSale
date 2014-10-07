@@ -10,8 +10,8 @@ public class Register {
     private Receipt receipt;
     
     // Add javadoc
-    public void startNewSale() {
-        
+    public void newSale(int customerId, DatabaseStrategy database) {
+        receipt = new Receipt(customerId, database);
     }
     
     // Add parameters, validation, javadoc
