@@ -30,9 +30,15 @@ public class Database implements DatabaseStrategy {
     };
     
     @Override
-    public Product searchForProduct(int productNumber) {
-        //perform search
-        return null;
+    public Product searchForProduct(int itemNumber) {
+        Product product = null;
+        for (Product arraySearch : productArray){
+            if(itemNumber == (arraySearch.getItemNumber())){
+                product = arraySearch;
+                break;
+            }
+        }
+        return product;
     }
     
 }

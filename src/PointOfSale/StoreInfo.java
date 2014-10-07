@@ -12,13 +12,17 @@ package PointOfSale;
  */
 public class StoreInfo {
     
-    private String storeName;
-    private String storeNumber;
-    private String storeAddress = "123 Main St";
+    private String storeName = "Kohl's";
+    private String storeNumber = "117";
+    private String storeAddress = "123 Main St.";
     private String city = "Cityville";
     private String state = "Wisconsin";
     private int zipCode = 98765;
 
+    public String sayHello() {
+        return "Hello";
+    }
+    
     public String getStoreName() {
         return storeName;
     }

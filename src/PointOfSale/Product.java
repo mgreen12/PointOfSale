@@ -21,4 +21,12 @@ public class Product {
      return price;   
     }
     
+    public String getDescription() {
+        return description;
+    }
+    
+    public int getItemNumber() {
+        return itemNumber;
+    }
+    
 }

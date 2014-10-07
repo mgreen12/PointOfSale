@@ -23,13 +23,4 @@ public class Register {
         receipt.printReceipt();
     }
     
-    /**
-     * Adds a line item to the receipt 
-     * @param lol unique identifier for a product
-     * @return the quantity of the product purchased
-     */
-    public int methodForJavadocExample(int lol) {
-       return lol;
-    }
-    
 }

@@ -26,6 +26,14 @@ public class LineItem {
         return product.getPrice();
     }
     
+    public String getDesciption() {
+        return product.getDescription();
+    }
+    
+    public int getItemNumber() {
+        return product.getItemNumber();
+    }
+    
     //DISCOUNT
     public double getLineSubTotal() {
         return (product.getPrice() * quantity);
