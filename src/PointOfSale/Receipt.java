@@ -12,6 +12,7 @@ public class Receipt {
     private double grandTotal = 0;
     private double salesTax = 0.051; //Waukesha sales tax
     private double subTotalWithTax;
+    private double totalSavings;
     private static int transactionNumber; //Increment by 1 every new transaction
     
     //Instantiate objects
@@ -49,23 +50,36 @@ public class Receipt {
         System.out.println("******************************");
         
         for(LineItem lineItem : lineItems) {
-            if(lineItem.getQuantity() == 1) {
-                System.out.println(lineItem.getItemNumber() + " " + lineItem.getDesciption() + " " + lineItem.getLineSubTotal());
+            
+            if(lineItem.getDiscount() < lineItem.getProductPrice()) {
+                //has a discount and one item
+                if(lineItem.getQuantity() == 1) {
+                    System.out.println(lineItem.getItemNumber() + " " + lineItem.getDesciption() + "\n\tDiscount: -" + (lineItem.getProductPrice() - lineItem.getDiscount()) + "\n\t\t\t" + lineItem.getLineSubTotal());
+                }
+                //has a discount for multiple items
+                else {
+                    System.out.println(lineItem.getItemNumber() + " " + lineItem.getDesciption() + "\n\t" + lineItem.getQuantity() + " @ " + lineItem.getProductPrice() + "\n\tDiscount: -" + lineItem.getQuantity() * (lineItem.getProductPrice() - lineItem.getDiscount()) + "\n\t\t\t" + lineItem.getLineSubTotal());
+                }
             }
             else {
-                System.out.println(lineItem.getItemNumber() + " " + lineItem.getDesciption() + "\n\t" + lineItem.getQuantity() + " @ " + lineItem.getProductPrice() + "\t" + lineItem.getLineSubTotal());
+                //no discount and one item
+                if(lineItem.getQuantity() == 1) {
+                    System.out.println(lineItem.getItemNumber() + " " + lineItem.getDesciption() + "\t\t" + lineItem.getLineSubTotal());
+                }
+                //no discount and multiple items
+                else {
+                    System.out.println(lineItem.getItemNumber() + " " + lineItem.getDesciption() + "\n\t" + lineItem.getQuantity() + " @ " + lineItem.getProductPrice() + "\t" + lineItem.getLineSubTotal());
+                }
             }
             subTotal += lineItem.getLineSubTotal();
+            totalSavings += lineItem.getQuantity() * (lineItem.getProductPrice() - lineItem.getDiscount());
         }
         
         subTotalWithTax = (salesTax * subTotal);
         grandTotal = (subTotal + subTotalWithTax);
         System.out.println("******************************");
-        System.out.format("\t\tSubtotal: $" + subTotal + "\n\t\tTax +" + subTotalWithTax + "\n\t\tTotal: $" + grandTotal);
-        //                              subTotal
-        //                                  +Tax
-        //                            grandTotal
-        //
+        System.out.format("\t\tSubtotal: $" + subTotal + "\n\t\tTax: +" + subTotalWithTax + "\n\t\tTotal: $" + grandTotal);
+        System.out.println("\n\n\tTotal savings: $" + totalSavings);
         System.out.println("\n\nThank you for shopping at " + store.getStoreName() + ", we look forward to seeing you again and have a nice day!");
     }
     

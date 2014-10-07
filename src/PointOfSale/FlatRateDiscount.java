@@ -7,8 +7,8 @@ package PointOfSale;
 public class FlatRateDiscount implements DiscountStrategy{
 
     @Override
-    public void getDiscount() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public double getDiscount(double price) {
+        return (price - 10);
     }
     
 }

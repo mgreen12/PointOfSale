@@ -2,13 +2,13 @@ package PointOfSale;
 
 /**
  *
- * @author mgreen12
+ * @author Max
  */
-public class PercentageDiscount implements DiscountStrategy{
-
+public class NoDiscount implements DiscountStrategy {
+    
     @Override
     public double getDiscount(double price) {
-        return (price * .80);
+        return price;
     }
     
 }

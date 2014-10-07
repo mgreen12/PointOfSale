@@ -6,15 +6,18 @@ package PointOfSale;
  * @version 1.0
  */
 public class Product {
+    
     private int itemNumber;
     private String description;
     private double price;
     
-    // Add validation, javadoc
-    public Product(int itemNumber, String description, double price) {
+    private DiscountStrategy discount;
+    
+    public Product(int itemNumber, String description, double price, DiscountStrategy discount) {
         this.itemNumber = itemNumber;
         this.description = description;
         this.price = price;
+        this.discount = discount;
     }
     
     public double getPrice() {
@@ -27,6 +30,10 @@ public class Product {
     
     public int getItemNumber() {
         return itemNumber;
+    }
+    
+    public double getDiscount() {
+        return discount.getDiscount(price);
     }
     
 }

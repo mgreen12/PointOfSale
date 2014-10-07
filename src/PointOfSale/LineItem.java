@@ -33,10 +33,13 @@ public class LineItem {
     public int getItemNumber() {
         return product.getItemNumber();
     }
-    
-    //DISCOUNT
+
     public double getLineSubTotal() {
-        return (product.getPrice() * quantity);
+        return (product.getDiscount() * quantity);
+    }
+    
+    public double getDiscount() {
+        return product.getDiscount();
     }
     
 }
